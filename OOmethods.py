@@ -66,7 +66,7 @@ def get_stdev(df):
 
     return(df)
 
-class dataAll(object):
+class data_all(object):
     """ Data class. Stores the filtered data before the regression"""
     def __init__(self,site,gas_ex):
         # Reads in data
@@ -97,11 +97,11 @@ class dataAll(object):
         elif filter_method == 'sea_influence':
             self.data = filterBySeaInfluence(data_stdev,filPct=filter_val)
         
-class OZ(dataAll):
+class OZ(data_all):
     """ subclass of data class for Cape Grim data, which requires extra 
     filtering to remove periods when NAME model is playing up."""
     def __init__(self,site,gas_ex):
-        dataAll.__init__(self,site,gas_ex)
+        data_all.__init__(self,site,gas_ex)
     
     def remove_bad_data(self):        
         # Removes periods with 0 in Boundary files and strange period of data
